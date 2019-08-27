@@ -1,0 +1,61 @@
+## Projeto de multiplicação de matrizes em python
+
+* Este é um projeto simples de multiplicação de matrizes em python para aprender o paralelismo;
+* Verifique os commits para saber mais sobre;
+* O padrão é uma matriz 400x400;
+* Em qualquer dúvida, abra uma issue;
+
+#### Tempo serializado:
+```bash
+$ time python main.py
+Fri Apr 26 18:31:06 2019: Gerando matrizes
+Fri Apr 26 18:31:07 2019: Multiplicando matrizes
+Fri Apr 26 18:31:13 2019: Resultado:[[11509. 11596. 12327. ... 11595. 12090. 11616.]
+ [11586. 12070. 12492. ... 11862. 12163. 11892.]
+ [11955. 12026. 12183. ... 11628. 11993. 11883.]
+ ...
+ [11631. 12013. 12356. ... 11571. 11932. 11717.]
+ [11563. 11597. 12048. ... 11501. 11654. 11504.]
+ [11862. 11855. 12307. ... 11545. 11874. 11678.]]
+
+real	0m6.653s
+user	0m6.630s
+sys	0m0.225s
+```
+
+#### Tempo utilizando threads:
+```bash
+$ time python mainThread.py 
+Mon Aug 26 21:57:40 2019: Gerando matrizes
+Mon Aug 26 21:57:40 2019: Multiplicando matrizes
+Mon Aug 26 21:57:43 2019: Resultado:[[11559. 12342. 11720. ... 11890. 11544. 11960.]
+ [12225. 13694. 13019. ... 12636. 12618. 12975.]
+ [11625. 13159. 12272. ... 12471. 11892. 12273.]
+ ...
+ [    0.     0.     0. ...     0.     0.     0.]
+ [    0.     0.     0. ...     0.     0.     0.]
+ [    0.     0.     0. ...     0.     0.     0.]]
+
+real	0m18,037s
+user	0m21,229s
+sys	0m8,844s
+
+```
+
+#### Tempo utilizando multiprocessos:
+```
+$ time python main.py 
+Mon Aug 26 21:58:04 2019: Gerando matrizes
+Mon Aug 26 21:58:05 2019: Multiplicando matrizes
+Mon Aug 26 21:58:05 2019: Resultado:[[12147. 11800. 12626. ... 11876. 11966. 11853.]
+ [12760. 12628. 12938. ... 12577. 12624. 12881.]
+ [12758. 12284. 12656. ... 11943. 12255. 12076.]
+ ...
+ [    0.     0.     0. ...     0.     0.     0.]
+ [    0.     0.     0. ...     0.     0.     0.]
+ [    0.     0.     0. ...     0.     0.     0.]]
+
+real	0m4,490s
+user	0m8,804s
+sys	0m0,723s
+```
